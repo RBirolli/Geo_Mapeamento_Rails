@@ -1,0 +1,23 @@
+<div class="row-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <h2><%= @flat.name %></h2>
+      <p><%= @flat.address %></p>
+      <p>Latitude: <%= @flat.latitude %></p>
+      <p>Longitude: <%= @flat.longitude %></p>
+    </div>
+
+    <div class="col-xs-3">
+      <%= link_to "Voltar", @flat, class: "btn btn-info" %>
+    </div><br>
+  </div>
+
+    <div class="row">
+      <% @images.each do |image| %>
+        <div class="col-xs-10">
+          <img src = <%= image.sub!("public", "") %> class='img-thumbnail' />
+        </div>
+      <% end %><br>
+    </div><br>
+</div><br>
+
