@@ -15,3 +15,6 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+# Google Maps JS Key
+<%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>

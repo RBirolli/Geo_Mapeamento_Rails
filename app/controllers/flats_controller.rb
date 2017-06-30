@@ -69,7 +69,7 @@ class FlatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flat_params
-      params.require(:flat).permit(:name, :address)
+      params.require(:flat).permit(:name, :address, :photo, :photo_cache)
     end
 
   def identifica_mobile

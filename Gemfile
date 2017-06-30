@@ -19,3 +19,7 @@ source "https://rails-assets.org" do
 end
 
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.0'
+gem 'simple_form'
+
