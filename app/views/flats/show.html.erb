@@ -1,24 +1,34 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-md-offset-2 col-xs-4">
-        <h2><%= @flat.name %></h2>
-        <p><%= @flat.address %></p>
-        <p>Latitude: <%= @flat.latitude %></p>
-        <p>Longitude: <%= @flat.longitude %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-md-offset-2 col-xs-4">
+      <h2><%= @flat.name %></h2>
+      <p><%= @flat.address %></p>
+      <p>Latitude: <%= @flat.latitude %></p>
+      <p>Longitude: <%= @flat.longitude %></p>
 
-        <% if @eh_mobile == false %>
-          <%= link_to "Editar", edit_flat_path(@flat), class: "btn btn-primary" %>
-        <% end %>
+      <% if @eh_mobile == false %>
+        <%= link_to "Editar", edit_flat_path(@flat), class: "btn btn-primary" %>
+      <% end %>
 
-        <%= link_to "Voltar", flats_path, class: "btn btn-info" %>
-      </div>
+      <%= link_to "Voltar", flats_path, class: "btn btn-info" %>
+    </div>
 
-      <div class="col-lg-6 col-md-6 col-xs-4">
-        <%= simple_form_for(@flat) do |f| %>
-          <%= f.input :photo %><br><br>
-          <%= f.input :photo_cache, as: :hidden %>
-          <%= f.submit %>
-        <% end %>
-      </div>
-    </div><br>
-  </div>
+    <div class="col-lg-6 col-md-6 col-xs-4">
+      <%= simple_form_for(@flat) do |f| %>
+        <%= f.input :photo %><br><br>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div><br>
+</div>
+
+<div class="row">
+    <% @images.each do |image| %>
+      <div class="col-xs-3">
+      <div class="borda">
+        <%= cl_image_tag("#{image.gsub("public", "")}", :width=>200, higth: 200, :crop=>"thumb") %>
+      </div></div>
+    <% end %>
+</div>
+

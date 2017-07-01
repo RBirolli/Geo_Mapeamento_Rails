@@ -2,3 +2,8 @@
 
 <%= render 'form' %>
 
+    <% @images.each do |image| %>
+    <p><%= "#{image}" %></p>
+      <img src=<%= "#{image}" %> class="list_image" id="small_photo"/>
+      <%= image_tag image %>
+    <% end %>

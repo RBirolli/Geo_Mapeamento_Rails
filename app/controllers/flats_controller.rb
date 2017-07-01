@@ -18,6 +18,7 @@ class FlatsController < ApplicationController
   # GET /flats/1
   # GET /flats/1.json
   def show
+    @images = Dir.glob("public/uploads/flat/photo/#{@flat.id}/*")
   end
 
   # GET /flats/new
@@ -74,7 +75,7 @@ class FlatsController < ApplicationController
 
   def identifica_mobile
     # Verifica se o dispositivo conectado eh mobile
-    request.user_agent.downcase.match(/intel mac os|windows/) ? @eh_mobile = false : @eh_mobile = true
+    request.user_agent.downcase.match(/intel mac os|ipad|windows/) ? @eh_mobile = false : @eh_mobile = true
   end
 
   def bloqueia_mobile
